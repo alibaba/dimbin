@@ -6,6 +6,11 @@
     "email": "gaomeng1900@gmail.com",
     "main": "v3.js",
     "types": "v3.d.ts",
+    "homepage": "https://github.com/alibaba/DIMBIN",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/alibaba/DIMBIN"
+    },
     "keywords": [
         "dimbin",
         "array",
