@@ -7,7 +7,7 @@ assets/tile/*.json
 assets/*.json
 dist/
 
-v*.js
-v*.ts
+/v*.js
+/v*.ts
 
 *.map

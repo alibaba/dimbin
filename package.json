@@ -1,7 +1,7 @@
 {
     "name": "dimbin",
-    "version": "0.3.0",
-    "description": "High-performance Serialization for Dimensional Arrays | 针对多维数组的高性能二进制序列化方案",
+    "version": "0.3.1",
+    "description": "High-performance serialization for multi-dimension arrays | 针对多维数组的高性能二进制序列化方案",
     "author": "gaomeng1900",
     "email": "gaomeng1900@gmail.com",
     "main": "v3.js",

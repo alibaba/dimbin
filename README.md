@@ -1,6 +1,9 @@
 # DIMBIN
 
+> High-performance serialization for multi-dimension arrays
+
 > 针对大量数据网络传输设计的序列化方案，用于储存多维数组
+> 通过直接内存操作实现高于 JSON 多个数量级的数值处理性能和更小的传输体积
 
 ## useage
 
@@ -163,11 +166,11 @@ interface Meta {
 
 ## performance
 
-当使用纯数值数据时
+当使用**纯数值数据**时
 
--   序列化性能为 JSON 的 3-10 倍
--   反序列化性能为 JSON 的 十万到百万 倍
--   体积比 JSON 减小 60%
+-   序列化性能为 JSON 的 **3-10 倍**
+-   反序列化性能为 JSON 的 **十万到百万 倍**
+-   体积比 JSON **减小 60%**
 
 当数据包含字符串时, 性能与体积受字符串所占比例的影响, (二进制序列化方案处理字符串的性能和体积都差于 JSON)
 
