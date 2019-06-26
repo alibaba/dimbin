@@ -1,14 +1,13 @@
 # DIMBIN
 
-> 针对大量数据网络传输设计的文件格式，用于储存多维数组
+> 针对大量数据网络传输设计的序列化方案，用于储存多维数组
 
 ## useage
 
 `npm install --save dimbin`
 
 ```javascript
-// v3
-import DIMBIN from 'dimbin'
+import DIMBIN from 'dimbin' // v3
 
 // import DIMBIN from 'dimbin/v2' // old version
 ```
