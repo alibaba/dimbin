@@ -174,7 +174,9 @@ interface Meta {
 
 在 JS 环境中, 性能高于 flatbuffers 30%~100%, 远高于 protocolbuffers.
 
-详细 benchmark 以及与 JSON / ProtocolBuffers / FlatBuffer 的对比与选型建议，见 `doc/benchmark&comparison.md`
+**详细 benchmark 以及与 JSON / ProtocolBuffers / FlatBuffer 的对比与选型建议 >>>**
+
+[**序列化方案选型对比**](https://github.com/alibaba/DIMBIN/wiki/序列化方案选型对比)
 
 ## development
 
