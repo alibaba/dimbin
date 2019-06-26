@@ -172,10 +172,22 @@ interface Meta {
 -   反序列化性能为 JSON 的 **十万到百万 倍**
 -   体积比 JSON **减小 60%**
 
-当数据包含字符串时, 性能与体积受字符串所占比例的影响, (二进制序列化方案处理字符串的性能和体积都差于 JSON)
+在 JS 环境中, 性能高于 flatbuffers 30%~100%, 远高于 protocolbuffers.
 
-在 JS 环境中, 性能好于 flatbuffers, 远好于 protocolbuffers.
+详细 benchmark 以及与 JSON / ProtocolBuffers / FlatBuffer 的对比与选型建议，见 `doc/benchmark&comparison.md`
+
+## development
+
+`npm install`
+
+`npm start`
+
+open `http://localhost:3112/html/api` in your browser.
+
+`npm test`
+
+`npm run dist`
 
 ## specifications
 
-moved to ./specifications/v3.md
+`specifications/v3.md`
