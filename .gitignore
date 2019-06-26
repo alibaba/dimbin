@@ -1,0 +1,13 @@
+node_modules/
+.DS_Store
+temp/
+npm-debug.log
+build/
+assets/tile/*.json
+assets/*.json
+dist/
+
+v*.js
+v*.ts
+
+*.map

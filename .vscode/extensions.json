@@ -1,0 +1,11 @@
+{
+    "recommendations": [
+        "formulahendry.auto-close-tag",
+        "steoates.autoimport",
+        "formulahendry.auto-rename-tag",
+        "dbaeumer.vscode-eslint",
+        "msjsdiag.debugger-for-chrome",
+        "ionutvmi.path-autocomplete",
+        "esbenp.prettier-vscode"
+    ]
+}

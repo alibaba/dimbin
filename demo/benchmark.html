@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8" />
+        <title>性能测试</title>
+    </head>
+    <body>
+        <script src="/static/import.demo.js" charset="utf-8"></script>
+        <script type="text/javascript">
+            console.log(DIMBIN)
+
+            b = new Float32Array(10000)
+            b.fill(32)
+
+            c = new Float64Array(100000)
+            c.fill(64)
+
+            d = new Int16Array(10000000)
+            d.fill(16)
+
+            b = Array.from(b)
+            c = Array.from(c)
+            d = Array.from(d)
+
+            const e = [new Float32Array(200), new Float32Array(300)]
+            e[0].fill(112233)
+            e[1].fill(445566)
+
+            const f = [
+                [[-0, -1, -2, -3], [-0, -1, -2, -3]],
+                [[-1, -2, -3], [-1, -2, -3]], //
+            ]
+
+            e.push(f)
+
+            const data = [
+                [0, 1, 2, 3],
+                [0, 1, 2, 3, 4],
+                [0, 1, 2, 3, 4, 5],
+                [0, 1, 2, 3, 4, 5, 6],
+                b,
+                c,
+                d,
+                e,
+                f,
+            ]
+
+            console.time('JSON.stringify')
+            x = JSON.stringify(data)
+            console.timeEnd('JSON.stringify')
+
+            console.time('JSON.parse')
+            y = JSON.parse(x)
+            console.timeEnd('JSON.parse')
+
+            console.time('DIMBIN.serialize')
+            x = DIMBIN.serialize(data)
+            console.timeEnd('DIMBIN.serialize')
+
+            console.time('DIMBIN.parse')
+            y = DIMBIN.parse(x)
+            console.timeEnd('DIMBIN.parse')
+
+            // x = DIMBIN.serialize()
+            // y = DIMBIN.parse(x)
+            // DIMBIN.serialize()
+        </script>
+    </body>
+</html>
