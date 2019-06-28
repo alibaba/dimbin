@@ -10,7 +10,7 @@
 
 ## useage
 
-### C sharp
+### C#
 
 [see ./csharp](./csharp/README.md)
 
@@ -110,7 +110,7 @@ const wrong3 = [
 
 ## API
 
-### C sharp
+### C#
 
 [see ./csharp](./csharp/README.md)
 

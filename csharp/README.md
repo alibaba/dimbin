@@ -1,4 +1,4 @@
-# dimbin C sharp
+# dimbin C#
 
 DIMBIN 的 C#版本
 
