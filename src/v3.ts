@@ -40,11 +40,11 @@ enum TYPES_MAP {
 
 export interface Meta {
     version: number
-    magic_num: number
-    seg_meta_bytes: number
-    seg_meta_start: number
+    magicNum: number
+    segMetaBytes: number
+    segMetaStart: number
     len: number
-    big_endian: boolean
+    bigEndian: boolean
 }
 
 interface DimensionalArray extends Array<number | DimensionalArray | TypedArray> {}
@@ -65,17 +65,17 @@ export function serialize(data: MultiDimensionalArray, magicNumber = 0): ArrayBu
 
     const meta: Meta = {
         version: VERSION,
-        magic_num: magicNumber,
-        seg_meta_bytes: 9,
-        seg_meta_start: 15,
+        magicNum: magicNumber,
+        segMetaBytes: 9,
+        segMetaStart: 15,
         len: data.length,
-        big_endian: false,
+        bigEndian: false,
     }
 
     const segments = []
 
-    let metaStart = meta.seg_meta_start
-    let dataStart = meta.seg_meta_start + meta.seg_meta_bytes * meta.len
+    let metaStart = meta.segMetaStart
+    let dataStart = meta.segMetaStart + meta.segMetaBytes * meta.len
 
     data.forEach(seg => {
         // 保证第二维是数组
@@ -141,10 +141,10 @@ export function serialize(data: MultiDimensionalArray, magicNumber = 0): ArrayBu
     // meta
 
     view.setUint8(0, meta.version)
-    view.setUint8(1, meta.big_endian ? 1 : 0)
-    view.setUint8(2, meta.seg_meta_bytes)
-    view.setUint32(3, meta.seg_meta_start, true) // 小端
-    view.setFloat32(7, meta.magic_num, true) // 小端
+    view.setUint8(1, meta.bigEndian ? 1 : 0)
+    view.setUint8(2, meta.segMetaBytes)
+    view.setUint32(3, meta.segMetaStart, true) // 小端
+    view.setFloat32(7, meta.magicNum, true) // 小端
     view.setUint32(11, meta.len, true) // 小端
 
     // segments
@@ -173,10 +173,10 @@ export function parse(buffer: ArrayBuffer | Buffer | DataView): MultiDimensional
     const meta = getMeta(view)
 
     if (meta.version !== 3) throw new Error(VERSION_ERROR + meta.version)
-    if (meta.big_endian) throw new Error(ENDIAN_ERROR)
+    if (meta.bigEndian) throw new Error(ENDIAN_ERROR)
 
     const result = []
-    let metaStart = meta.seg_meta_start
+    let metaStart = meta.segMetaStart
     for (let i = 0; i < meta.len; i++) {
         const type = view.getUint8(metaStart)
         const dataStart = view.getUint32(metaStart + 1, true)
@@ -187,7 +187,7 @@ export function parse(buffer: ArrayBuffer | Buffer | DataView): MultiDimensional
         } else {
             result.push(new TYPES[type](buffer, dataStart + view.byteOffset, lendth))
         }
-        metaStart += meta.seg_meta_bytes
+        metaStart += meta.segMetaBytes
     }
 
     return result
@@ -201,18 +201,18 @@ export function getMeta(buffer: ArrayBuffer | Buffer | DataView): Meta {
     const view = buffer instanceof DataView ? buffer : new DataView(buffer)
 
     const version = view.getUint8(0)
-    const big_endian = !!view.getUint8(1)
+    const bigEndian = !!view.getUint8(1)
 
     if (version !== 3) console.error(VERSION_ERROR + version)
 
-    if (big_endian) console.error(ENDIAN_ERROR)
+    if (bigEndian) console.error(ENDIAN_ERROR)
 
     return {
         version,
-        big_endian,
-        seg_meta_bytes: view.getUint8(2),
-        seg_meta_start: view.getUint32(3, true), // 小端
-        magic_num: view.getFloat32(7, true), // 小端
+        bigEndian,
+        segMetaBytes: view.getUint8(2),
+        segMetaStart: view.getUint32(3, true), // 小端
+        magicNum: view.getFloat32(7, true), // 小端
         len: view.getUint32(11, true), // 小端
     }
 }

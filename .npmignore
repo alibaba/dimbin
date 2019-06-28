@@ -8,11 +8,10 @@ temp/
 .eslintignore
 .prettierignore
 .prettierrc
-webpack.config.js
-server.js  
 .eslintrc
 __tests__/
 
-jest.config.js
-server.js
-webpack.config.js
+/server.js  
+/jest.config.js
+/server.js
+/webpack.config.js
