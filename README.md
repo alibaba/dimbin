@@ -8,7 +8,7 @@
 
 [《序列化方案选型建议》](https://github.com/alibaba/DIMBIN/wiki/序列化方案选型对比)
 
-## useage
+## Useage
 
 ### C#
 
@@ -177,7 +177,7 @@ interface Meta {
 -   @param `{UInt8Array}` 序列化后的二进制数据
 -   @return `{boolean[]}` 元素为布尔值的数组
 
-## performance
+## Performance
 
 JS 环境下：当使用**纯数值数据**时
 
@@ -191,7 +191,7 @@ JS 环境下：当使用**纯数值数据**时
 
 [**序列化方案选型对比**](https://github.com/alibaba/DIMBIN/wiki/序列化方案选型对比)
 
-## development
+## Development
 
 `npm install`
 
@@ -203,6 +203,6 @@ open `http://localhost:3112/html/api` in your browser.
 
 `npm run dist`
 
-## specifications
+## Specifications
 
 `specifications/v3.md`

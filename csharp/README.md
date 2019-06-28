@@ -1,8 +1,8 @@
-# dimbin C#
+# DIMBIN C#
 
 DIMBIN 的 C#版本
 
-## useage
+## Useage
 
 ```csharp
 using System;
