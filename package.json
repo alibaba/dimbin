@@ -26,6 +26,7 @@
     "README.md",
     "v*.js",
     "v*.ts",
+    "*.cs",
     "v*.map"
   ],
   "dependencies": {},
