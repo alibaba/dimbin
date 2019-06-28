@@ -1,11 +1,18 @@
 # DIMBIN
 
 > High-performance serialization for multi-dimension arrays
-
+>
 > 针对大量数据网络传输设计的序列化方案，用于储存多维数组
-> 通过直接内存操作实现高于 JSON 多个数量级的数值处理性能和更小的传输体积
+>
+> 通过*直接内存操作*实现高于 JSON 多个数量级的性能和更小的传输体积
+
+[《序列化方案选型建议》](https://github.com/alibaba/DIMBIN/wiki/序列化方案选型对比)
 
 ## useage
+
+### C sharp
+
+[see ./csharp](./csharp/README.md)
 
 ### javascript
 
@@ -52,15 +59,9 @@ dim[4] = DIMBIN.booleansParse(dim[4])
 */
 ```
 
-### C sharp
-
-[see ./csharp](./csharp/README.md)
-
 ## 数据结构
 
-DIMBIN 为多维数组而设计, 因此传入的数据结构必须为多维数组, 数组维数没有上限, 每一维度数组的元素个数上线为 2^32 .
-
-维度和数组元素个数受运行环境和设备限制.
+DIMBIN 为多维数组而设计, 因此传入的数据结构必须为多维数组, 数组维数没有上限, 每一维度数组的元素个数上线为 2^32 . 维度和数组元素个数受运行环境和设备限制.
 
 ```javascript
 // 粒子 🌰
@@ -109,7 +110,13 @@ const wrong3 = [
 
 ## API
 
-### `serialize`
+### C sharp
+
+[see ./csharp](./csharp/README.md)
+
+### javascript
+
+#### `serialize`
 
 序列化为二进制数据
 
@@ -117,14 +124,14 @@ const wrong3 = [
 -   @param `{float} magicNumber` 用户控制的标识位
 -   @return `{ArrayBuffer}`
 
-### `parse`
+#### `parse`
 
 反序列化回多维数组
 
 -   @param `{ArrayBuffer|Buffer|DataView} buffer` 序列化后的二进制数据
 -   @return `{Array<TypedArray|Array<TypedArray|Array>>}`
 
-### `getMeta`
+#### `getMeta`
 
 读取二进制数据的元数据
 
@@ -142,28 +149,28 @@ interface Meta {
 }
 ```
 
-### `stringsSerialize`
+#### `stringsSerialize`
 
 将 Array<string> 序列化成 TypedArray
 
 -   @param `{string[]} strs` 元素为字符串的数组
 -   @return `{UInt8Array}` 序列化后的二进制数据
 
-### `stringsParse`
+#### `stringsParse`
 
 将 stringsSerialize 生成的二进制数据解析回 Array<string>
 
 -   @param `{UInt8Array}` 序列化后的二进制数据
 -   @return `{string[]}` 元素为字符串的数组
 
-### `booleansSerialize`
+#### `booleansSerialize`
 
 将 Array<boolean> 序列化成 TypedArray
 
 -   @param `{boolean[]} strs` 元素为布尔值的数组
 -   @return `{UInt8Array}` 序列化后的二进制数据
 
-### `booleansParse`
+#### `booleansParse`
 
 将 booleansSerialize 生成的二进制数据解析回 Array<boolean>
 

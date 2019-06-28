@@ -2,8 +2,6 @@
 
 DIMBIN 的 C#版本
 
-接口与 dimbin.js 一致
-
 ## useage
 
 ```csharp
