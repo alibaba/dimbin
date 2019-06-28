@@ -1,60 +1,61 @@
 {
-    "name": "dimbin",
-    "version": "0.3.3",
-    "description": "High-performance serialization for multi-dimension arrays | 针对多维数组的高性能二进制序列化方案",
-    "author": "gaomeng1900",
-    "email": "gaomeng1900@gmail.com",
-    "main": "v3.js",
-    "types": "v3.d.ts",
-    "homepage": "https://github.com/alibaba/DIMBIN",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/alibaba/DIMBIN"
-    },
-    "keywords": [
-        "dimbin",
-        "array",
-        "buffer",
-        "serialize",
-        "binary",
-        "js",
-        "ts"
-    ],
-    "license": "MIT",
-    "files": [
-        "package.json",
-        "README.md",
-        "v*.js",
-        "v*.ts",
-        "v*.map"
-    ],
-    "dependencies": {},
-    "devDependencies": {
-        "@babel/cli": "^7.4.4",
-        "@babel/core": "^7.4.4",
-        "@babel/preset-env": "^7.4.4",
-        "@types/node": "^12.0.10",
-        "babel-eslint": "^10.0.1",
-        "babel-loader": "^8.0.5",
-        "compression": "^1.7.4",
-        "eslint": "^5.16.0",
-        "eslint-config-standard": "^12.0.0",
-        "eslint-plugin-import": "^2.17.2",
-        "eslint-plugin-node": "^9.0.1",
-        "eslint-plugin-promise": "^4.1.1",
-        "eslint-plugin-standard": "^4.0.0",
-        "express": "^4.16.4",
-        "jest": "^24.8.0",
-        "ts-loader": "^6.0.4",
-        "ts-node": "^8.3.0",
-        "typescript": "^3.5.2",
-        "webpack": "^4.31.0",
-        "webpack-cli": "^3.3.2",
-        "webpack-dev-middleware": "^3.7.0"
-    },
-    "scripts": {
-        "start": "node server.js",
-        "test": "jest",
-        "dist": "NODE_ENV=production webpack --progress --colors && npm run test"
-    }
+  "name": "dimbin",
+  "version": "0.3.4",
+  "description": "High-performance serialization for multi-dimension arrays | 针对多维数组的高性能二进制序列化方案",
+  "author": "gaomeng1900",
+  "email": "gaomeng1900@gmail.com",
+  "main": "v3.js",
+  "types": "v3.d.ts",
+  "homepage": "https://github.com/alibaba/DIMBIN",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alibaba/DIMBIN"
+  },
+  "keywords": [
+    "dimbin",
+    "array",
+    "buffer",
+    "serialize",
+    "binary",
+    "js",
+    "ts"
+  ],
+  "license": "MIT",
+  "files": [
+    "package.json",
+    "README.md",
+    "v*.js",
+    "v*.ts",
+    "v*.map"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.4",
+    "@babel/preset-env": "^7.4.4",
+    "@types/node": "^12.0.10",
+    "babel-eslint": "^10.0.1",
+    "babel-loader": "^8.0.5",
+    "compression": "^1.7.4",
+    "eslint": "^5.16.0",
+    "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-import": "^2.17.2",
+    "eslint-plugin-node": "^9.0.1",
+    "eslint-plugin-promise": "^4.1.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "express": "^4.16.4",
+    "jest": "^24.8.0",
+    "js-file-download": "^0.4.7",
+    "ts-loader": "^6.0.4",
+    "ts-node": "^8.3.0",
+    "typescript": "^3.5.2",
+    "webpack": "^4.31.0",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-middleware": "^3.7.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "test": "jest",
+    "dist": "NODE_ENV=production webpack --progress --colors && npm run test"
+  }
 }

@@ -7,6 +7,8 @@
 
 ## useage
 
+### javascript
+
 `npm install --save dimbin`
 
 ```javascript
@@ -49,6 +51,10 @@ dim[4] = DIMBIN.booleansParse(dim[4])
 ]
 */
 ```
+
+### C sharp
+
+[see ./csharp](./csharp/README.md)
 
 ## 数据结构
 
