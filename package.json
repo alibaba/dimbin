@@ -1,6 +1,6 @@
 {
   "name": "dimbin",
-  "version": "0.3.6",
+  "version": "0.3.8",
   "description": "High-performance serialization for multi-dimension arrays | 针对多维数组的高性能二进制序列化方案",
   "author": "gaomeng1900",
   "email": "gaomeng1900@gmail.com",
@@ -50,7 +50,7 @@
     "ts-loader": "^6.0.4",
     "ts-node": "^8.3.0",
     "typescript": "^3.5.2",
-    "webpack": "^4.31.0",
+    "webpack": "^4.35.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-middleware": "^3.7.0"
   },

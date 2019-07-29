@@ -4,7 +4,8 @@ using System.Collections.Generic;
 
 namespace Ali.DIMBIN.V3
 {
-    static class CONSTANTS {
+    static class CONSTANTS
+    {
         public static readonly Type[] TYPES = new Type[128];
         public static readonly int[] BYTES_PER_ELEMENT = new int[128];
 
@@ -33,7 +34,8 @@ namespace Ali.DIMBIN.V3
             BYTES_PER_ELEMENT.SetValue(1, 127);
         }
 
-        public enum TYPES_MAP {
+        public enum TYPES_MAP
+        {
             Int8Array, // 0
             Uint8Array, // 1
             Uint8ClampedArray, // 2
@@ -57,7 +59,8 @@ namespace Ali.DIMBIN.V3
         public float MagicNum;
         public uint Len;
 
-        public override string ToString() {
+        public override string ToString()
+        {
             return $"Meta:\n"
             + $"--Version={Version}\n"
             + $"--BigEndian={BigEndian}\n"
@@ -68,13 +71,16 @@ namespace Ali.DIMBIN.V3
         }
     }
 
-    class IncompatibleVersionException: ApplicationException {
-        public IncompatibleVersionException(string message): base(message) {}
+    class IncompatibleVersionException : ApplicationException
+    {
+        public IncompatibleVersionException(string message) : base(message) { }
     }
 
     static class Dimbin
     {
-        static public Meta GetMeta(byte[] buffer) {
+        // 获取元数据
+        static public Meta GetMeta(byte[] buffer)
+        {
             Meta meta;
 
             meta.Version = buffer[0];
@@ -93,7 +99,9 @@ namespace Ali.DIMBIN.V3
             return meta;
         }
 
-        static public List<dynamic> Parse(byte[] buffer) {
+        // 解析
+        static public List<dynamic> Parse(byte[] buffer)
+        {
             Meta meta = GetMeta(buffer);
             if (meta.Version != 3)
             {
@@ -104,7 +112,8 @@ namespace Ali.DIMBIN.V3
 
             int metaStart = (int)meta.SegMetaStart;
 
-            for (var i = 0; i < meta.Len; i++) {
+            for (var i = 0; i < meta.Len; i++)
+            {
                 int type = (int)buffer[metaStart];
                 int dataStart = (int)BitConverter.ToUInt32(buffer, metaStart + 1);
                 int length = (int)BitConverter.ToUInt32(buffer, metaStart + 5);
@@ -115,7 +124,7 @@ namespace Ali.DIMBIN.V3
                     Buffer.BlockCopy(buffer, dataStart, subBuffer, 0, length);
                     result.Add(Parse(subBuffer));
                 }
-                else 
+                else
                 {
                     int BYTES_PER_ELEMENT = CONSTANTS.BYTES_PER_ELEMENT[type];
 
@@ -125,6 +134,30 @@ namespace Ali.DIMBIN.V3
                 }
 
                 metaStart += meta.SegMetaBytes;
+            }
+
+            return result;
+        }
+
+        // 解析字符串
+        static public List<String> StringsParse(byte[] buffer)
+        {
+            List<String> result = new List<String>();
+
+            int version = (int)BitConverter.ToUInt32(buffer, 0);
+            int length = (int)BitConverter.ToUInt32(buffer, 4);
+
+            var i = 0;
+            var pointer = 4 + 4 + length * 4;
+
+            while (i < length)
+            {
+                var len = (int)BitConverter.ToUInt32(buffer, 8 + 4 * i++);
+
+                var str = System.Text.Encoding.UTF8.GetString(buffer, pointer, len);
+                pointer += len;
+
+                result.Add(str);
             }
 
             return result;
