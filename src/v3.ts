@@ -272,8 +272,8 @@ export function stringsSerialize(strs: string[]): Uint8Array {
     const buffer = new ArrayBuffer(4 + 4 + length * 4 + sum * 4) // 按32位分配，这里不见得用得到32位，输出前裁掉
 
     const view = new DataView(buffer)
-    view.setUint32(0, 0)
-    view.setUint32(4, length)
+    view.setUint32(0, 0, true)
+    view.setUint32(4, length, true)
 
     // 5ms
     const utf8 = new Uint8Array(buffer, 4 + 4 + length * 4, sum * 4) // 用不完
@@ -332,7 +332,7 @@ export function stringsSerialize(strs: string[]): Uint8Array {
         }
 
         const end = pointer
-        view.setUint32(8 + 4 * i, end - start)
+        view.setUint32(8 + 4 * i, end - start, true)
 
         i++
     }
@@ -349,8 +349,8 @@ export function stringsParse(uint8array: Uint8Array): string[] {
     // version (4 bytes) | length (4 bytes) | segments (4 * len bytes) | utf8
 
     const view = new DataView(uint8array.buffer, uint8array.byteOffset, uint8array.byteLength)
-    const version = view.getUint32(0)
-    const length = view.getUint32(4)
+    const version = view.getUint32(0, true)
+    const length = view.getUint32(4, true)
 
     const utf8 = new Uint8Array(uint8array.buffer, uint8array.byteOffset + 4 + 4 + length * 4)
 
@@ -361,7 +361,7 @@ export function stringsParse(uint8array: Uint8Array): string[] {
 
     let end = 0
     while (i < length) {
-        const len = view.getUint32(8 + 4 * i++)
+        const len = view.getUint32(8 + 4 * i++, true)
         const isLongString = len > 20
 
         const codePoints = []
