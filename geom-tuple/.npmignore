@@ -1,0 +1,17 @@
+node_modules/
+src/
+demo/
+temp/
+
+
+.vscode/
+.eslintignore
+.prettierignore
+.prettierrc
+.eslintrc
+__tests__/
+
+/server.js  
+/jest.config.js
+/server.js
+/webpack.config.js
