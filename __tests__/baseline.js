@@ -1,5 +1,30 @@
 /* eslint-disable node/no-deprecated-api */
-const assert = require('assert')
+// const assert = require('assert')
+
+const arrayDeepEqual = (actual, expected) => {
+    // if (expected.length !== undefined) {
+    //     if (actual.BYTES_PER_ELEMENT || expected.BYTES_PER_ELEMENT) {
+    //         for (let i = 0; i < actual.length; i++) {
+    //             expect(actual[i]).toEqual(expected[i])
+    //         }
+    //     } else {
+    //         expect(actual).toEqual(expected)
+    //     }
+
+    // }
+
+    if (expected.BYTES_PER_ELEMENT || Array.isArray(expected)) {
+        for (let i = 0; i < actual.length; i++) {
+            const subActual = actual[i]
+            const subExpected = expected[i]
+            arrayDeepEqual(subActual, subExpected)
+        }
+    } else {
+        if (actual !== expected) {
+            throw new Error(`NOT EQUAL: ${expected} => ${actual}`)
+        }
+    }
+}
 
 describe('DIMBIN baseline', () => {
     const DIMBIN = require('../v3.js')
@@ -22,7 +47,8 @@ describe('DIMBIN baseline', () => {
 
     const strings = []
     const string = Array.from('1295你好呀🔥🔥😊呀啦Ô˜˝◊《,,n ,弄,你好.😄1234')
-    for (let i = 0; i < 1000; i++) {
+    // for (let i = 0; i < 1000; i++) {
+    for (let i = 0; i < 5; i++) {
         // 避免将32位unicode拆分
         strings.push(string.slice(0, Math.floor(Math.random() * string.length)).join())
     }
@@ -46,17 +72,17 @@ describe('DIMBIN baseline', () => {
 
     it('2 dimension', () => {
         const expected = [[1, 2, 3, 4], [5, 6, 7, 8], new Float64Array([1, 2, 3])]
-        assert.deepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
+        arrayDeepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
     })
 
     it('typedArray', () => {
         const expected = [b, c, d]
-        assert.deepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
+        arrayDeepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
     })
 
     it('multi 0', () => {
         const expected = e
-        assert.deepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
+        arrayDeepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
     })
 
     it('multi 1', () => {
@@ -70,7 +96,7 @@ describe('DIMBIN baseline', () => {
             e,
             f,
         ]
-        assert.deepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
+        arrayDeepEqual(DIMBIN.parse(DIMBIN.serialize(expected)), expected)
     })
 
     it('boolean', () => {
@@ -97,7 +123,7 @@ describe('DIMBIN baseline', () => {
         b[2] = DIMBIN.booleansParse(b[2])
         b[4] = DIMBIN.booleansParse(b[4])
 
-        assert.deepEqual(b, expected)
+        arrayDeepEqual(b, expected)
     })
 
     it('string', () => {
@@ -106,7 +132,7 @@ describe('DIMBIN baseline', () => {
             [0, 1, 2, 3], // e,
             strings,
             [0, 1, 2, 3, 4, 5],
-            strings.slice(0, 123),
+            strings.slice(0, 2),
             [0, 1, 2, 3], // d,
             [0, 1, 4, 5],
         ]
@@ -124,6 +150,6 @@ describe('DIMBIN baseline', () => {
         b[2] = DIMBIN.stringsParse(b[2])
         b[4] = DIMBIN.stringsParse(b[4])
 
-        assert.deepEqual(b, expected)
+        arrayDeepEqual(b, expected)
     })
 })
