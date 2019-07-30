@@ -32,3 +32,6 @@ dist/
 **/project.lock.json
 **/project.fragment.lock.json
 **/artifacts/
+
+# lock
+**/package-lock.json

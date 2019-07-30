@@ -12,5 +12,5 @@
         "declaration": true,
         "baseUrl": "."
     },
-    "exclude": ["node_modules", "v*.d.ts"]
+    "exclude": ["node_modules", "v*.d.ts", "geom-tuple"]
 }

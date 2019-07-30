@@ -1,25 +1,24 @@
 {
-  "name": "geom-tuple",
-  "version": "0.0.1-alpha",
-  "description": "Serialize THREE.BufferGeometry into ArrayBuffer with DIMBIN.",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alibaba/DIMBIN.git"
-  },
-  "author": "gaomeng1900",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/alibaba/DIMBIN/issues"
-  },
-  "homepage": "https://github.com/alibaba/DIMBIN#readme",
-  "devDependencies": {
-    "three": "^0.106.2"
-  },
-  "dependencies": {
-    "dimbin": "^0.3.8"
-  }
+    "name": "geom-tuple",
+    "version": "0.0.1-alpha",
+    "description": "Serialize THREE.BufferGeometry into ArrayBuffer with DIMBIN.",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/alibaba/DIMBIN.git"
+    },
+    "author": "gaomeng1900",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/alibaba/DIMBIN/issues"
+    },
+    "homepage": "https://github.com/alibaba/DIMBIN#readme",
+    "devDependencies": {},
+    "dependencies": {
+        "three": "^0.106.2",
+        "dimbin": "^0.3.8"
+    }
 }
