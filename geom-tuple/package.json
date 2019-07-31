@@ -1,8 +1,16 @@
 {
     "name": "geom-tuple",
-    "version": "0.0.1-alpha",
+    "version": "0.0.2-alpha",
     "description": "Serialize THREE.BufferGeometry into ArrayBuffer with DIMBIN.",
-    "main": "index.js",
+    "main": "GeomTuple.js",
+    "types": "GeomTuple.d.ts",
+    "files": [
+        "GeomTuple.js",
+        "GeomTuple.ts",
+        "GeomTuple.d.ts",
+        "GeomTuple.js.map",
+        "csharp/GeomTuple.cs"
+    ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1"
     },

@@ -57,6 +57,7 @@
     "scripts": {
         "start": "node server.js",
         "test": "jest",
-        "dist": "NODE_ENV=production webpack --progress --colors && npm run test"
+        "dist": "NODE_ENV=production webpack --progress --colors && npm run test",
+        "distGeomTuple": "./node_modules/typescript/bin/tsc --sourceMap -d ./geom-tuple/GeomTuple.ts"
     }
 }
