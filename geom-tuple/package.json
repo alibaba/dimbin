@@ -1,6 +1,6 @@
 {
     "name": "geom-tuple",
-    "version": "0.0.2-alpha",
+    "version": "0.0.4-beta",
     "description": "Serialize THREE.BufferGeometry into ArrayBuffer with DIMBIN.",
     "main": "GeomTuple.js",
     "types": "GeomTuple.d.ts",
@@ -24,9 +24,10 @@
         "url": "https://github.com/alibaba/DIMBIN/issues"
     },
     "homepage": "https://github.com/alibaba/DIMBIN#readme",
-    "devDependencies": {},
+    "peerDependencies": {
+        "three": "*"
+    },
     "dependencies": {
-        "three": "^0.106.2",
-        "dimbin": "^0.3.8"
+        "dimbin": "^0.3.9"
     }
 }

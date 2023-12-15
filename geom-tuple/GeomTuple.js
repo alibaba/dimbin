@@ -1,11 +1,10 @@
 "use strict";
 exports.__esModule = true;
 var dimbin_1 = require("dimbin");
-var BufferAttribute_1 = require("three/src/core/BufferAttribute");
-var BufferGeometry_1 = require("three/src/core/BufferGeometry");
+var three_1 = require("three");
 var THREE = {
-    BufferAttribute: BufferAttribute_1.BufferAttribute,
-    BufferGeometry: BufferGeometry_1.BufferGeometry
+    BufferAttribute: three_1.BufferAttribute,
+    BufferGeometry: three_1.BufferGeometry
 };
 /**
  * 把 THREE.BufferGeometry 序列化成 arraybuffer

@@ -1,6 +1,7 @@
 import DIMBIN from 'dimbin'
-import { BufferAttribute as _BufferAttribute } from 'three/src/core/BufferAttribute'
-import { BufferGeometry } from 'three/src/core/BufferGeometry'
+import { BufferGeometry, BufferAttribute as _BufferAttribute } from 'three'
+// import { BufferAttribute as _BufferAttribute } from 'three/src/core/BufferAttribute'
+// import { BufferGeometry } from 'three/src/core/BufferGeometry'
 import { TypedArray } from 'three/src/Three.d'
 
 const THREE = {

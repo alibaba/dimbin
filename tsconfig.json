@@ -4,7 +4,7 @@
         "noImplicitAny": false,
         "module": "commonjs",
         "moduleResolution": "node",
-        "target": "es6",
+        "target": "ES2015",
         "esModuleInterop": true,
         "preserveConstEnums": true,
         "allowSyntheticDefaultImports": true,
